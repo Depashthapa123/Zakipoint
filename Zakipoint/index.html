@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Login and Registration page</title>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div class="login-page">
+            <div class="form">
+                <form onsubmit="return func2()" class="register" action="#">
+                    <input id="user" type="text" placeholder="Username"/>
+                    <input id="pass" type="text" placeholder="Password"/>
+                    <input id="email1" type="text" placeholder="Email id"/>
+                    <button id="btn1" onclick="func1()" type="submit">Submit</button>
+                    <label id="label1" style="color: red; visibility: hidden">Invalid</label>
+                    <p class="message">Already Registered? <a href="#">Login</a></p>
+                </form>
+
+                <form class="Login" action="#">
+                    <input type="text" placeholder="Username"/>
+                    <input type="text" placeholder="Password"/>
+                    <button>Login</button>
+                    <p class="message">Not Registered?<a href="#">Register</a></p>
+                </form>
+            </div>
+        </div>
+
+        <script src="JS/jquery.js"></script>
+        <script>
+
+            function func2(){
+                const uname = document.getElementById("user").value;
+                const pname = document.getElementById("pass").value;
+
+                if(uname.value.trim()==""){
+                    uname.style.border = "solid 3px red";
+                    return false;
+                }
+                else if (pname.value.trim()==""){
+                    pname.style.border = "solid 3px red";
+                    return false;
+                }
+                else if (pname.length<5){
+                    alert("Password too short!!")
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+
+
+
+            function func1(){
+                const email1 = document.getElementById("email1").value;
+                const regx = /^([a-zA-Z0-9\d.-]+)@([a-zA-Z0-9]+).([a-z]{2,8})([a-z]{2, 8})?$/
+
+                if(regx.test(email1)){
+                    document.getElementById("label1").innerHTML="Valid";
+                    document.getElementById("label1").style.visibility="visible";
+                    document.getElementById("label1").style.color="green";
+                }
+                else if (email1==""){
+                    alert("email is empty!!")
+                }
+                else {
+                    alert("invalid email!!")
+                }
+            }
+
+            $(".message a").click(function (){
+                $("form").animate({
+                    height: "toggle",
+                    opacity: "toggle"
+
+                }, "slow")
+            })
+        </script>
+    </body>
+</head>
+</html>
