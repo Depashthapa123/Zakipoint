@@ -1,14 +1,26 @@
 <html>
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="dashboard.css">
     </head>
     <body>
         <nav>
-            <div class="bar-block">
-                <a >dashboard</a><br>
-                <a>profile</a><br>
-                <a>logout</a><br>
+<!--            <div class="dateTime">-->
+<!--                <h1>Current date</h1>-->
+<!--                <input id="yollo" type="text" placeholder="Enter the date">-->
+<!--            </div>-->
+
+            <div id="side-bar">
+                <div class="toggle-btn" onclick="toggleSidebar()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+               <ul>
+                   <li onclick="">Dashboard</li>
+                   <li onclick="">Profile</li>
+                   <li onclick="">Logout</li>
+               </ul>
             </div>
         </nav>
 
@@ -16,7 +28,12 @@
     <script src="jqueryui/jquery-ui.js"></script>
 
     <script>
-        $(".class a").accordion();
+        function toggleSidebar(){
+            document.getElementById("side-bar").classList.toggle('active');
+        }
+
+        $("#yollo").datepicker();
+
     </script>
     </body>
 </html>
