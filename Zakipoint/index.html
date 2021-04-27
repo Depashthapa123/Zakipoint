@@ -27,23 +27,28 @@
         <script>
 
             function func2(){
-                const uname = document.getElementById("user").value;
-                const pname = document.getElementById("pass").value;
+                const uname = document.getElementById("user");
+                // console.log(uname);
+                const pname = document.getElementById("pass");
 
                 if(uname.value.trim()==""){
-                    uname.style.border = "solid 3px red";
-                    return false;
+                    uname.style.border = "2px solid red";
+                    // console.log(uname.style);
+                    return;
                 }
                 else if (pname.value.trim()==""){
-                    pname.style.border = "solid 3px red";
-                    return false;
+                    pname.style.border = "2px solid red";
+                    return;
                 }
-                else if (pname.length<5){
+                else if (pname.value.length<5){
+                    pname.style.border = "2px solid red";
                     alert("Password too short!!")
-                    return false;
+                    return;
                 }
                 else{
-                    return true;
+                    uname.style.removeProperty("border");
+                    pname.style.removeProperty("border");
+                    return;
                 }
             }
 
@@ -54,9 +59,10 @@
                 const regx = /^([a-zA-Z0-9\d.-]+)@([a-zA-Z0-9]+).([a-z]{2,8})([a-z]{2, 8})?$/
 
                 if(regx.test(email1)){
-                    document.getElementById("label1").innerHTML="Valid";
-                    document.getElementById("label1").style.visibility="visible";
-                    document.getElementById("label1").style.color="green";
+                    // document.getElementById("label1").innerHTML="Valid";
+                    // document.getElementById("label1").style.visibility="visible";
+                    // document.getElementById("label1").style.color="green";
+                    return ;
                 }
                 else if (email1==""){
                     alert("email is empty!!")
